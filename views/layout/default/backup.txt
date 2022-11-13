@@ -1,0 +1,16 @@
+<main class="app-content">
+    {{include file=$_content}}
+      
+  </main>
+
+  
+  <noscript>
+  <p>Debe tener el soporte de Javascript habilitado</p>
+  </noscript>
+  
+  {if isset($_layoutParams.js) && count($_layoutParams.js)}
+    {foreach item=js from=$_layoutParams.js}
+      <script type="text/javascript" src="{$js}"></script>
+    {/foreach}
+    
+  {/if}
