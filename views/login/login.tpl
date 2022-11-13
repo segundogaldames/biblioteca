@@ -1,4 +1,4 @@
-<div class="col-md-6 offset-md-3">
+<div class="col-md-6 offset-md-2">
     {include file="../partials/_messages.tpl"}
     <form class="login-form" action="{$_layoutParams.root}{$process}" method="post">
         <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Login</h3>

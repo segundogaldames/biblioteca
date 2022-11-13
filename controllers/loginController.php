@@ -6,28 +6,27 @@ class loginController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->tema = 'Ingreso de usuario';
     }
 
     #metodo GET que carga el formulario de login
     public function login()
     {
-        if (Session::get('autenticado')) {
-            $this->redirect();
+        if (Session::get('autenticate')) {
+            $this->redirect('home');
         }
 
         $this->getMessages();
         //print_r($_POST);exit;
         $this->_view->assign('title','Login de Usuario');
         $this->_view->assign('subject','Login de Usuario');
-        $this->_view->assign('process', 'login/new');
+        $this->_view->assign('process', 'login/store');
         $this->_view->assign('send', $this->encrypt($this->getForm()));
 
         $this->_view->render('login');
     }
 
     #metodo POST que crea el login y la sesion
-    public function new()
+    public function store()
     {
         $this->validateForm('login/login',[
             'email' => $this->validateEmail(Filter::getPostParam('email')),

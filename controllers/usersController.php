@@ -21,7 +21,7 @@ class usersController extends Controller
         $this->_view->render('index');
     }
 
-    public function view($id = null)
+    public function show($id = null)
     {
         $this->validateSession();
         Validate::validateModel(User::class,$id,'users');
@@ -30,7 +30,7 @@ class usersController extends Controller
         $this->_view->assign('title', 'Usuarios');
         $this->_view->assign('subject','Detalle Usuario');
         $this->_view->assign('user', User::find(Filter::filterInt($id)));
-        $this->_view->render('view');
+        $this->_view->render('show');
     }
 
     public function edit($id = null)
@@ -83,14 +83,14 @@ class usersController extends Controller
         $this->_view->assign('subject','Nuevo Usuario');
         $this->_view->assign('button','Guardar');
         $this->_view->assign('back', 'users/<aa');
-        $this->_view->assign('process','users/new');
+        $this->_view->assign('process','users/store');
         $this->_view->assign('user', Session::get('data'));
         $this->_view->assign('send', $this->encrypt($this->getForm()));
 
         $this->_view->render('add');
     }
 
-    public function new()
+    public function store()
     {
         $this->validateForm('users/add',[
             'nombre' => Filter::getText('name'),
