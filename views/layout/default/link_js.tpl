@@ -5,3 +5,5 @@
 <script src="{$_layoutParams.route_js}main.js"></script>
 <!-- The javascript plugin to display page loading on top-->
 <script src="{$_layoutParams.route_js}plugins/pace.min.js"></script>
+<script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="{$_layoutParams.route_js}funciones.js"></script>

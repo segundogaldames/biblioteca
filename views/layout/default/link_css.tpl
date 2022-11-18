@@ -5,3 +5,4 @@
  <link rel="stylesheet" type="text/css" href="{$_layoutParams.route_css}main.css">
  <!-- Font-icon css-->
  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
