@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2022 a las 01:35:17
+-- Tiempo de generación: 19-11-2022 a las 02:57:09
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -88,7 +88,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `rut`, `email`, `status`, `password`, `direccion`, `comuna_id`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 'Segundo Galdames', '', 'segundogaldames@gmail.com', 1, 'ec6c3913b14c8b5bc8d368ee64de2e42d86b1dfe69316ffaaabf6f3bac3f359731b6b11e31f4e75a2f42b3aa4005dd60b6d98f9fb4504f2428c6b1b2188f3e4e', '', 0, 0, '2022-11-11 20:57:09', '2022-11-11 21:02:27');
+(1, 'Segundo Galdames', '11983017-6', 'segundogaldames@gmail.com', 1, 'ec6c3913b14c8b5bc8d368ee64de2e42d86b1dfe69316ffaaabf6f3bac3f359731b6b11e31f4e75a2f42b3aa4005dd60b6d98f9fb4504f2428c6b1b2188f3e4e', 'Arturo Prat 309', 1, 1, '2022-11-11 20:57:09', '2022-11-18 22:45:58'),
+(2, 'Juan Perez', '12345678-5', 'juanperez@gmail.com', 1, 'ec6c3913b14c8b5bc8d368ee64de2e42d86b1dfe69316ffaaabf6f3bac3f359731b6b11e31f4e75a2f42b3aa4005dd60b6d98f9fb4504f2428c6b1b2188f3e4e', 'Los sauces 123', 2, 2, '2022-11-18 22:31:34', '2022-11-18 22:46:37');
 
 --
 -- Índices para tablas volcadas
@@ -132,7 +133,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
