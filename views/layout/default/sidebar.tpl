@@ -49,7 +49,9 @@
         <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Error Page</a></li>
       </ul>
     </li>
-    <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Docs</span></a></li>
+    <li>
+      <a class="app-menu__item" href="{$_layoutParams.root}comunas"><i class="app-menu__icon fa fa-car"></i><span class="app-menu__label">Comunas</span></a>
+      </li>
   </ul>
 </aside>
 {/if}

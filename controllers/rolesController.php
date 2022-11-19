@@ -96,6 +96,9 @@ class rolesController extends Controller
         $this->_view->render('edit');
     }
 
+    /*
+    * metodo PUT para cargar el formulario de registro
+    */
     public function update($id = null)
     {
         $this->validateSession();
