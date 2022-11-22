@@ -13,6 +13,11 @@ class User extends Model
         return $this->belongsTo(Comuna::class);
     }
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
     public function telefonos()
     {
         return $this->morphMany(Telefono::class, 'telefonoable');

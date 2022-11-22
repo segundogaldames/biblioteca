@@ -53,6 +53,9 @@
             </table>
             <p>
                 <a href="{$_layoutParams.root}users" class="btn btn-outline-primary btn-sm">Volver</a>
+                <a href="{$_layoutParams.root}telefonos/add/{$user.id}/user" class="btn btn-outline-primary btn-sm">Agregar Teléfono</a>
+            </p>
+            <p>
                 <a href="{$_layoutParams.root}passwords/edit" class="btn btn-outline-success btn-sm">Cambiar Password</a>
             </p>
         </div>
