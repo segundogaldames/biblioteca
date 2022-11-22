@@ -32,7 +32,7 @@ class Bootstrap
 			if(is_callable(array($controller, $method))):
 				$method = $request->getMethod();
 			else:
-				$method = 'index';
+				header('Location: ' . BASE_URL . 'error/error/');
 			endif;
 
 			if(isset($args)):

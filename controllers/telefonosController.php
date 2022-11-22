@@ -9,6 +9,30 @@ class telefonosController extends Controller
         parent::__construct();
     }
 
+    public function show($id = null)
+    {
+        $this->validateSession();
+        Validate::validateModel(Telefono::class,$id,'telefonos');
+        $this->getMessages();
+
+        $telefono = Telefono::find(Filter::filterInt($id));
+
+        if ($telefono->telefonoable_type == 'User') {
+            $route = 'users/show/' . $telefono->telefonoable_id;
+            $propietario = User::select('id','name')->find($telefono->telefonoable_id);
+        }else {
+            $route = 'suscriptores/show/' . $$telefono->telefonoable_id;
+            //$propietario = Suscriptor::select('id','name')->find($telefono->telefonoable_id);
+        }
+
+        $this->_view->assign('title', 'Teléfonos');
+        $this->_view->assign('subject','Detalle Teléfono');
+        $this->_view->assign('telefono', $telefono);
+        $this->_view->assign('propietario', $propietario);
+        $this->_view->assign('back', $route);
+        $this->_view->render('show');
+    }
+
     public function add($model_id = null, $model_type = null)
     {
         //print_r($model_type);exit;

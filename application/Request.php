@@ -32,7 +32,7 @@ class Request
 						$this->_controller = strtolower(@array_shift($url));
 
 						if(!$this->_controller):
-							$this->_controller = 'index';
+							header('Location: ' . BASE_URL . 'error/error/');
 						endif;
 					endif;
 				else:
