@@ -3,6 +3,7 @@
 use models\User;
 use models\Role;
 use models\Comuna;
+use models\Telefono;
 
 class usersController extends Controller
 {
@@ -32,6 +33,7 @@ class usersController extends Controller
         $this->_view->assign('title', 'Usuarios');
         $this->_view->assign('subject','Detalle Usuario');
         $this->_view->assign('user', User::with(['comuna','role'])->find(Filter::filterInt($id)));
+        $this->_view->assign('telefonos', Telefono::select('id', 'numero')->where('telefonoable_id', Filter::filterInt($id))->where('telefonoable_type', 'User')->get());
         $this->_view->render('show');
     }
 
