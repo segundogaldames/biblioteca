@@ -5,21 +5,24 @@
   <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{$_layoutParams.route_img}user.jpg" width="40" alt="User Image">
     <div>
       <p class="app-sidebar__user-name">{{Session::get('user_name')}}</p>
-      <p class="app-sidebar__user-designation">Frontend Developer</p>
+      <p class="app-sidebar__user-designation">{{Session::get('user_role')}} </p>
     </div>
   </div>
   <ul class="app-menu">
     <li><a class="app-menu__item" href="{$_layoutParams.root}home"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Home</span></a></li>
+
+    <!--Menu Usuarios-->
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Usuarios</span><i class="treeview-indicator fa fa-angle-right"></i></a>
       <ul class="treeview-menu">
+        <li>
+          <a class="treeview-item" href="{$_layoutParams.root}nacionalidades"><i class="icon fa fa-circle-o"></i> Nacionalidades</a>
+        </li>
         <li>
           <a class="treeview-item" href="{$_layoutParams.root}roles"><i class="icon fa fa-circle-o"></i> Roles</a>
         </li>
         <li>
           <a class="treeview-item" href="{$_layoutParams.root}users" rel="noopener"><i class="icon fa fa-circle-o"></i> Usuarios</a>
         </li>
-        <li><a class="treeview-item" href="{$_layoutParams.root}login/logout"><i class="icon fa fa-circle-o"></i> Logout</a></li>
-        
       </ul>
     </li>
     <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li>

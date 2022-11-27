@@ -33,11 +33,15 @@ class loginController extends Controller
             'password' => Filter::getSql('password')
         ]);
 
-        $user = User::
-            where('email', Filter::getPostParam('email'))
+        $user = User::with('role')
+            ->where('email', Filter::getPostParam('email'))
             ->where('password', Helper::encryptPassword(Filter::getSql('password')))
             ->where('status', 1)
             ->first();
+
+        // echo '<pre>';
+        // print_r($user);exit;
+        // echo '</pre>';
 
         if (!$user) {
             Session::set('msg_error', 'El email o el password no están registrados... intente nuevamente');
@@ -47,6 +51,7 @@ class loginController extends Controller
         Session::set('autenticate', true);
         Session::set('user_id', $user->id);
         Session::set('user_name', $user->name);
+        Session::set('user_role', $user->role->nombre);
         Session::set('time', time());
         Session::set('msg_success','Bienvenid@ ' . $user->name);
 
