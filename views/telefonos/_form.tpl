@@ -8,9 +8,19 @@
         <div class="form-group mb-2">
             <label for="movil" class="control-label">Tipo<span class="text-danger">*</span></label>
             <select name="movil" id="movil" class="form-control">
-                <option value="">Seleccione...</option>
-                <option value="1">Móvil</option>
-                <option value="2">Fijo</option>
+                {if $button == 'Editar'}
+                    {if $telefono.movil == 1}
+                        <option value="1">Móvil</option>
+                        <option value="2">Fijo</option>
+                    {else}
+                        <option value="2">Fijo</option>
+                        <option value="1">Móvil</option>
+                    {/if}
+                {else}
+                    <option value="">Seleccione...</option>
+                    <option value="1">Móvil</option>
+                    <option value="2">Fijo</option>
+                {/if}
             </select>
         </div>
 

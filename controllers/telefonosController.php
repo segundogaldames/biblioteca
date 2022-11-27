@@ -30,6 +30,7 @@ class telefonosController extends Controller
         $this->_view->assign('telefono', $telefono);
         $this->_view->assign('propietario', $propietario);
         $this->_view->assign('back', $route);
+        $this->_view->assign('send', $this->encrypt($this->getForm()));
         $this->_view->render('show');
     }
 
@@ -97,6 +98,83 @@ class telefonosController extends Controller
 
         Session::destroy('data');
         Session::set('msg_success','El teléfono se ha registrado correctamente');
+        $this->redirect($route);
+    }
+
+    public function edit($id = null)
+    {
+        $this->validateSession();
+        Validate::validateModel(Telefono::class,$id,'telefonos');
+        $this->getMessages();
+
+        $this->_view->assign('title','Telefonos');
+        $this->_view->assign('subject', 'Editar Teléfono');
+        $this->_view->assign('button','Editar');
+        $this->_view->assign('back', "telefonos/show/{$id}");
+        $this->_view->assign('process',"telefonos/update/{$id}");
+        $this->_view->assign('telefono', Telefono::find(Filter::filterInt($id)));
+        $this->_view->assign('send', $this->encrypt($this->getForm()));
+
+        $this->_view->render('edit');
+    }
+
+    public function update($id = null)
+    {
+        $this->validateSession();
+        Validate::validateModel(Telefono::class,$id,'users');
+        $this->validatePUT();
+
+        $this->validateForm("telefonos/edit/{$id}",[
+            'numero' => Filter::getText('numero'),
+            'movil' => Filter::getText('movil')
+        ]);
+
+        if (strlen(Filter::getText('numero')) < 9) {
+            Session::set('msg_error', 'El teléfono debe tener al menos 9 dígitos' );
+            $this->redirect("telefonos/edit/{id}");
+        }
+
+        $phone = Telefono::select('id')
+            ->where('numero', Filter::getInt('numero'))
+            ->where('movil', Filter::getInt('movil'))
+            ->first();
+
+        if($phone){
+            Session::set('msg_error', 'El teléfono ingresado ya existe... modifique alguno de los datos para continuar');
+            $this->redirect("telefonos/edit/{$id}");
+        }
+
+        $telefono = Telefono::find(Filter::filterInt($id));
+        $telefono->numero = Filter::getInt('numero');
+        $telefono->movil = Filter::getInt('movil');
+        $telefono->save();
+
+        Session::destroy('data');
+        Session::set('msg_success','El teléfono se ha modificado correctamente');
+        $this->redirect('telefonos/show/' . $id);
+    }
+
+    public function destroy($id = null)
+    {
+        if ($this->decrypt(Filter::getAlphaNum('send')) != $this->getForm()) {
+            $this->redirect('error/denied');
+        }
+        $this->validateDelete();
+
+        Validate::validateModel(Telefono::class, $id, 'users');
+
+        $telefono = Telefono::find(Filter::filterInt($id));
+
+        if ($telefono->telefonoable_type == 'User') {
+            $route = 'users/show/' . $telefono->telefonoable_id;
+        }else{
+            $route = 'suscriptores/show/' . $telefono->telefonoable_id;
+        }
+
+        $telefono->delete(); //delete from telefonos where id = ?
+
+        Session::set('msg_success','El teléfono se ha eliminado correctamente');
+
         $this->redirect($route);
     }
 }

@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <table class="table table-hover">
                 <tr>
-                    <th>Nombre:</th>
+                    <th>Número:</th>
                     <td>{$telefono.numero}</td>
                 </tr>
                 <tr>
@@ -44,6 +44,13 @@
         </div>
         <p>
             <a href="{$_layoutParams.root}{$back}" class="btn btn-outline-primary btn-sm">Volver</a>
+            <a href="{$_layoutParams.root}telefonos/edit/{$telefono.id}" class="btn btn-outline-success btn-sm">Editar</a>
+
+            <form action="{$_layoutParams.root}telefonos/destroy/{$telefono.id}" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="send" value="{$send}">
+                <button type="submit" class="btn btn-outline-warning">Eliminar</button>
+            </form>
         </p>
     </div>
 </div>

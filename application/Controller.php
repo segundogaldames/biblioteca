@@ -101,7 +101,7 @@ class Controller
 	#usado para eliminar un registro en la base de datos
 	protected function validateDelete()
 	{
-		if ($this->_param->getText('_method') != 'DELETE') {
+		if (Filter::getText('_method') != 'DELETE') {
 			$this->redirect('error/denied');
 		}
 	}
