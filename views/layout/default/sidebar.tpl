@@ -21,6 +21,9 @@
           <a class="treeview-item" href="{$_layoutParams.root}roles"><i class="icon fa fa-circle-o"></i> Roles</a>
         </li>
         <li>
+          <a class="treeview-item" href="{$_layoutParams.root}suscriptores"><i class="icon fa fa-circle-o"></i> Suscriptores</a>
+        </li>
+        <li>
           <a class="treeview-item" href="{$_layoutParams.root}users" rel="noopener"><i class="icon fa fa-circle-o"></i> Usuarios</a>
         </li>
       </ul>

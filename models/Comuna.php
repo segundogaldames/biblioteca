@@ -12,4 +12,9 @@ class Comuna extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function suscriptores()
+    {
+        return $this->hasMany(Suscriptor::class);
+    }
 }
