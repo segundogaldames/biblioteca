@@ -42,6 +42,32 @@ INSERT INTO `comunas` VALUES (1,'Santiago','2022-11-18 21:32:17','2022-11-18 21:
 UNLOCK TABLES;
 
 --
+-- Table structure for table `nacionalidades`
+--
+
+DROP TABLE IF EXISTS `nacionalidades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nacionalidades` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nacionalidades`
+--
+
+LOCK TABLES `nacionalidades` WRITE;
+/*!40000 ALTER TABLE `nacionalidades` DISABLE KEYS */;
+INSERT INTO `nacionalidades` VALUES (1,'Chilena','2022-11-27 01:20:14','2022-11-27 01:20:48'),(2,'Venezolana','2022-12-04 18:43:40','2022-12-04 18:43:40');
+/*!40000 ALTER TABLE `nacionalidades` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `roles`
 --
 
@@ -65,6 +91,38 @@ LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` VALUES (1,'Administrador','2022-11-13 19:41:56','2022-11-13 19:42:58'),(2,'Suscriptor','2022-11-13 20:11:51','2022-11-13 20:11:51');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `suscriptores`
+--
+
+DROP TABLE IF EXISTS `suscriptores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `suscriptores` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  `rut` varchar(255) NOT NULL,
+  `direccion` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `activo` int NOT NULL,
+  `comuna_id` int NOT NULL,
+  `nacionalidad_id` int NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `suscriptores`
+--
+
+LOCK TABLES `suscriptores` WRITE;
+/*!40000 ALTER TABLE `suscriptores` DISABLE KEYS */;
+INSERT INTO `suscriptores` VALUES (1,'Rolando Jara Morales','24.678.900-2','Los Vilos 999','r.jaramorales@gmail.com',1,2,1,'2022-12-04 18:49:03','2022-12-04 19:30:50'),(2,'Javiera Torres Contreras','23.678.954-3','Los Carrera 345','javiera.torresc@hotmail.com',2,1,2,'2022-12-04 18:51:46','2022-12-04 19:35:20');
+/*!40000 ALTER TABLE `suscriptores` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -137,4 +195,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-27  0:16:45
+-- Dump completed on 2022-12-04 19:48:31
