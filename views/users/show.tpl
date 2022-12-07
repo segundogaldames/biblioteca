@@ -10,7 +10,7 @@
             <table class="table table-hover">
                 <tr>
                     <th>Nombre:</th>
-                    <td>{$user.name}</td>
+                    <td>{$user.nombre}</td>
                 </tr>
                 <tr>
                     <th>RUT:</th>

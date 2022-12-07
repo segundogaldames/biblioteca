@@ -47,7 +47,7 @@ class usersController extends Controller
         $this->_view->assign('title','Usuarios');
         $this->_view->assign('subject','Editar Usuario');
         $this->_view->assign('button','Editar');
-        $this->_view->assign('back', "users/edit/{$id}");
+        $this->_view->assign('back', "users/");
         $this->_view->assign('process', "users/update/{$id}");
         $this->_view->assign('user', User::with(['comuna','role'])->find(Filter::filterInt($id)));
         $this->_view->assign('roles', Role::select('id','nombre')->get());
@@ -65,7 +65,7 @@ class usersController extends Controller
         $this->validatePUT();
 
         $this->validateForm("users/edit/{$id}",[
-            'nombre' => Filter::getText('name'),
+            'nombre' => Filter::getText('nombre'),
             'rut' => Filter::getText('rut'),
             'email' => $this->validateEmail(Filter::getPostParam('email')),
             'status' => Filter::getText('status'),
@@ -80,7 +80,7 @@ class usersController extends Controller
         }
 
         $user = User::find(Filter::filterInt($id));
-        $user->name = Filter::getSql('name');
+        $user->nombre = Filter::getSql('nombre');
         $user->rut = Filter::getText('rut');
         $user->email = Filter::getPostParam('email');
         $user->status = Filter::getInt('status');
@@ -101,7 +101,7 @@ class usersController extends Controller
         $this->_view->assign('title','Usuarios');
         $this->_view->assign('subject','Nuevo Usuario');
         $this->_view->assign('button','Guardar');
-        $this->_view->assign('back', 'users/<aa');
+        $this->_view->assign('back', 'users/');
         $this->_view->assign('process','users/store');
         $this->_view->assign('roles', Role::select('id','nombre')->get());
         $this->_view->assign('comunas', Comuna::select('id','nombre')->get());
@@ -114,7 +114,7 @@ class usersController extends Controller
     public function store()
     {
         $this->validateForm('users/add',[
-            'nombre' => Filter::getText('name'),
+            'nombre' => Filter::getText('nombre'),
             'rut' => Filter::getText('rut'),
             'email' => $this->validateEmail(Filter::getPostParam('email')),
             'direccion' => Filter::getText('direccion'),
@@ -148,7 +148,7 @@ class usersController extends Controller
         }
 
         $user = new User;
-        $user->name = Filter::getSql('name');
+        $user->nombre = Filter::getSql('nombre');
         $user->rut = Filter::getText('rut');
         $user->email = Filter::getPostParam('email');
         $user->status = 1;

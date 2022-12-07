@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     protected $table = 'users';
-    protected $fillable = ['name','email','status','password'];
+    protected $fillable = ['nombre','email','status','password'];
 
     public function comuna()
     {

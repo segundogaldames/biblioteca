@@ -121,7 +121,7 @@ CREATE TABLE `suscriptores` (
 
 LOCK TABLES `suscriptores` WRITE;
 /*!40000 ALTER TABLE `suscriptores` DISABLE KEYS */;
-INSERT INTO `suscriptores` VALUES (1,'Rolando Jara Morales','24.678.900-2','Los Vilos 999','r.jaramorales@gmail.com',1,2,1,'2022-12-04 18:49:03','2022-12-04 19:30:50'),(2,'Javiera Torres Contreras','23.678.954-3','Los Carrera 345','javiera.torresc@hotmail.com',2,1,2,'2022-12-04 18:51:46','2022-12-04 19:35:20');
+INSERT INTO `suscriptores` VALUES (1,'Rolando Jara Morales','24.678.900-2','Los Vilos 999','r.jaramorales@gmail.com',1,2,1,'2022-12-04 18:49:03','2022-12-04 19:30:50'),(2,'Javiera Torres Contreras','23.678.954-3','Los Carrera 345','javiera.torresc@hotmail.com',1,1,2,'2022-12-04 18:51:46','2022-12-07 16:27:33');
 /*!40000 ALTER TABLE `suscriptores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,7 +141,7 @@ CREATE TABLE `telefonos` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,6 +150,7 @@ CREATE TABLE `telefonos` (
 
 LOCK TABLES `telefonos` WRITE;
 /*!40000 ALTER TABLE `telefonos` DISABLE KEYS */;
+INSERT INTO `telefonos` VALUES (3,287645698,2,2,'Suscriptor','2022-12-07 17:02:32','2022-12-07 17:02:32'),(4,289765430,2,2,'Suscriptor','2022-12-07 17:07:42','2022-12-07 17:07:42'),(5,956789321,1,2,'User','2022-12-07 17:12:59','2022-12-07 17:12:59'),(6,885421342,1,1,'Suscriptor','2022-12-07 17:15:18','2022-12-07 17:15:18');
 /*!40000 ALTER TABLE `telefonos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,7 +163,7 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
   `rut` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `status` int NOT NULL,
@@ -173,7 +174,7 @@ CREATE TABLE `users` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +183,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Segundo Galdames','11983017-6','segundogaldames@gmail.com',1,'ec6c3913b14c8b5bc8d368ee64de2e42d86b1dfe69316ffaaabf6f3bac3f359731b6b11e31f4e75a2f42b3aa4005dd60b6d98f9fb4504f2428c6b1b2188f3e4e','Arturo Prat 309',1,1,'2022-11-11 20:57:09','2022-11-18 22:45:58'),(2,'Juan Perez','12345678-5','juanperez@gmail.com',1,'ec6c3913b14c8b5bc8d368ee64de2e42d86b1dfe69316ffaaabf6f3bac3f359731b6b11e31f4e75a2f42b3aa4005dd60b6d98f9fb4504f2428c6b1b2188f3e4e','Los sauces 123',2,2,'2022-11-18 22:31:34','2022-11-18 22:46:37');
+INSERT INTO `users` VALUES (1,'Segundo Galdames','11983017-6','segundogaldames@gmail.com',1,'ec6c3913b14c8b5bc8d368ee64de2e42d86b1dfe69316ffaaabf6f3bac3f359731b6b11e31f4e75a2f42b3aa4005dd60b6d98f9fb4504f2428c6b1b2188f3e4e','Arturo Prat 309',1,1,'2022-11-11 20:57:09','2022-11-18 22:45:58'),(2,'Juan Perez','12345678-5','juanperez@gmail.com',1,'ec6c3913b14c8b5bc8d368ee64de2e42d86b1dfe69316ffaaabf6f3bac3f359731b6b11e31f4e75a2f42b3aa4005dd60b6d98f9fb4504f2428c6b1b2188f3e4e','Los sauces 123',2,2,'2022-11-18 22:31:34','2022-11-18 22:46:37'),(3,'Veronica Rosales','18.654.456-0','vrosales@aiep.cl',1,'ec6c3913b14c8b5bc8d368ee64de2e42d86b1dfe69316ffaaabf6f3bac3f359731b6b11e31f4e75a2f42b3aa4005dd60b6d98f9fb4504f2428c6b1b2188f3e4e','Los naranjos 345',1,2,'2022-12-07 17:53:44','2022-12-07 17:53:44');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -195,4 +196,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-04 19:48:31
+-- Dump completed on 2022-12-07 18:24:00

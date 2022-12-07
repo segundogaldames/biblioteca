@@ -2,6 +2,7 @@
 use models\Suscriptor;
 use models\Comuna;
 use models\Nacionalidad;
+use models\Telefono;
 
 class suscriptoresController extends Controller
 {
@@ -88,6 +89,7 @@ class suscriptoresController extends Controller
         $this->_view->assign('title', 'Suscriptores');
         $this->_view->assign('subject','Detalle Suscriptor');
         $this->_view->assign('suscriptor', Suscriptor::find(Filter::filterInt($id)));
+        $this->_view->assign('telefonos', Telefono::select('id','numero')->where('telefonoable_id', Filter::filterInt($id))->where('telefonoable_type','Suscriptor')->get());
         $this->_view->render('show');
     }
 

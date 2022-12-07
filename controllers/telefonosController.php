@@ -1,6 +1,7 @@
 <?php
 use models\Telefono;
 use models\User;
+use models\Suscriptor;
 
 class telefonosController extends Controller
 {
@@ -19,10 +20,10 @@ class telefonosController extends Controller
 
         if ($telefono->telefonoable_type == 'User') {
             $route = 'users/show/' . $telefono->telefonoable_id;
-            $propietario = User::select('id','name')->find($telefono->telefonoable_id);
+            $propietario = User::select('id','nombre')->find($telefono->telefonoable_id);
         }else {
-            $route = 'suscriptores/show/' . $$telefono->telefonoable_id;
-            //$propietario = Suscriptor::select('id','name')->find($telefono->telefonoable_id);
+            $route = 'suscriptores/show/' . $telefono->telefonoable_id;
+            $propietario = Suscriptor::select('id','nombre')->find($telefono->telefonoable_id);
         }
 
         $this->_view->assign('title', 'Teléfonos');
@@ -36,7 +37,7 @@ class telefonosController extends Controller
 
     public function add($model_id = null, $model_type = null)
     {
-        //print_r($model_type);exit;
+        //print_r($model_id);exit;
         $this->validateSession();
         $this->getMessages();
 
@@ -75,8 +76,8 @@ class telefonosController extends Controller
             'movil' => Filter::getText('movil')
         ]);
 
-        if (strlen(Filter::getText('numero')) < 9) {
-            Session::set('msg_error', 'El teléfono debe tener al menos 9 dígitos');
+        if (strlen(Filter::getInt('numero')) < 9 || strlen(Filter::getInt('numero')) > 9) {
+            Session::set('msg_error', 'El teléfono debe tener 9 dígitos');
             $this->redirect("telefonos/add/{$model_id}/{$model_type}");
         }
 

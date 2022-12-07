@@ -2,9 +2,9 @@
 
     <form action="{$_layoutParams.root}{$process}" method="post">
         <div class="form-group mb-2">
-            <label for="name" class="control-label">Nombre<span
+            <label for="nombre" class="control-label">Nombre<span
                     class="text-danger">*</span></label>
-            <input type="text" name="name" value="{$user.name|default:""}" class="form-control" id="" aria-describedby=""
+            <input type="text" name="nombre" value="{$user.nombre|default:""}" class="form-control" id="" aria-describedby=""
                 placeholder="Nombre del usuario">
         </div>
         <div class="form-group mb-2">
@@ -83,6 +83,6 @@
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="send" value="{$send}">
         <button type="submit" class="btn btn-outline-success">{$button}</button>
-        <a href="{$_layoutParams.root}" class="btn btn-outline-primary">Cancelar</a>
+        <a href="{$_layoutParams.root}{$back}" class="btn btn-outline-primary">Cancelar</a>
     </form>
 </div>

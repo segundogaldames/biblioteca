@@ -26,7 +26,7 @@
                     {foreach from=$users item=user}
                         <tr>
                             <td>{$user.id}</td>
-                            <td>{$user.name}</td>
+                            <td>{$user.nombre}</td>
                             <td>{$user.rut}</td>
                             <td>{$user.comuna.nombre}</td>
                             <td>{$user.role.nombre}</td>
